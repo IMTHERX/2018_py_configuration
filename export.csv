@@ -1,0 +1,13 @@
+id,中转ID,IP地址,"跳转端口
+（source-interface）","协议类型
+（ssh22/telnet21）",OS,用户名,密码,enable密码,延时,verbose
+1,,192.168.123.22,,22,cisco_ios,cisco,cisco,enable,,FALSE
+,1,192.168.123.23,,22,cisco_ios,cisco,cisco,enable,,FALSE
+,,192.168.123.22,,22,cisco_ios,cisco,cisco,enable,,FALSE
+,,192.168.123.23,,22,cisco_ios,cisco,cisco,enable,,FALSE
+,,192.168.123.22,,22,cisco_ios,cisco,cisco,enable,,FALSE
+,,192.168.123.23,,22,cisco_ios,cisco,cisco,enable,,FALSE
+,,192.168.123.22,,22,cisco_ios,cisco,cisco,enable,,FALSE
+,,192.168.123.23,,22,cisco_ios,cisco,cisco,enable,,FALSE
+,,192.168.123.22,,22,cisco_ios,cisco,cisco,enable,,FALSE
+,,192.168.123.23,,22,cisco_ios,cisco,cisco,enable,,FALSE

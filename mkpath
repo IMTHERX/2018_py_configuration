@@ -1,0 +1,612 @@
+config term
+Enter configuration commands, one per line.  End with CNTL/Z.
+r1(config)#exit
+r1#sh run
+Building configuration...
+
+Current configuration : 1197 bytes
+!
+! Last configuration change at 01:25:14 EET Tue Jun 12 2018 by cisco
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname r1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 20010
+no logging console
+enable password enable
+!
+no aaa new-model
+clock timezone EET 2 0
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+!
+!
+!
+!
+no ip domain lookup
+ip domain name cisco
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+username cisco privilege 15 password 0 cisco
+!
+redundancy
+!
+!
+ip ssh version 2
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 2.2.2.2 255.255.255.255
+ shutdown
+!
+interface Ethernet0/0
+ ip address 192.168.123.22 255.255.255.0
+!
+interface Ethernet0/1
+ ip address 1.1.1.2 255.255.255.0
+!
+interface Ethernet0/2
+ no ip address
+ shutdown
+!
+interface Ethernet0/3
+ no ip address
+ shutdown
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+!
+logging trap debugging
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+end
+
+r1#sh config
+Using 1197 out of 524288 bytes
+!
+! Last configuration change at 21:54:56 EET Sun Jun 10 2018 by cisco
+!
+version 15.4
+service timestamps debug datetime msec
+service timestamps log datetime msec
+no service password-encryption
+!
+hostname r1
+!
+boot-start-marker
+boot-end-marker
+!
+!
+logging buffered 20010
+no logging console
+enable password enable
+!
+no aaa new-model
+clock timezone EET 2 0
+mmi polling-interval 60
+no mmi auto-configure
+no mmi pvc
+mmi snmp-timeout 180
+!
+!
+!
+!
+!
+!
+!
+!
+
+
+!
+!
+!
+!
+no ip domain lookup
+ip domain name cisco
+ip cef
+no ipv6 cef
+!
+multilink bundle-name authenticated
+!
+!
+!
+!
+!
+!
+!
+!
+username cisco privilege 15 password 0 cisco
+!
+redundancy
+!
+!
+ip ssh version 2
+! 
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+!
+interface Loopback0
+ ip address 2.2.2.2 255.255.255.255
+ shutdown
+!
+interface Ethernet0/0
+ ip address 192.168.123.22 255.255.255.0
+!
+interface Ethernet0/1
+ ip address 1.1.1.2 255.255.255.0
+!
+interface Ethernet0/2
+ no ip address
+ shutdown
+!
+interface Ethernet0/3
+ no ip address
+ shutdown
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+!
+logging trap debugging
+!
+!
+!
+control-plane
+!
+!
+!
+!
+!
+!
+!
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+end
+
+r1#sh ver
+Cisco IOS Software, Linux Software (I86BI_LINUX-ADVENTERPRISEK9-M), Version 15.4(2)T4, DEVELOPMENT TEST SOFTWARE
+Technical Support: http://www.cisco.com/techsupport
+Copyright (c) 1986-2015 by Cisco Systems, Inc.
+Compiled Thu 08-Oct-15 21:21 by prod_rel_team
+
+ROM: Bootstrap program is Linux
+
+r1 uptime is 1 day, 7 hours, 21 minutes
+System returned to ROM by reload at 0
+System image file is "unix:/opt/unetlab/addons/iol/bin/i86bi_linux-adventerprisek9-ms.154-"
+Last reload reason: Unknown reason
+
+
+
+This product contains cryptographic features and is subject to United
+States and local country laws governing import, export, transfer and
+use. Delivery of Cisco cryptographic products does not imply
+third-party authority to import, export, distribute or use encryption.
+Importers, exporters, distributors and users are responsible for
+compliance with U.S. and local country laws. By using this product you
+agree to comply with applicable laws and regulations. If you are unable
+to comply with U.S. and local laws, return this product immediately.
+
+A summary of U.S. laws governing Cisco cryptographic products may be found at:
+http://www.cisco.com/wwl/export/crypto/tool/stqrg.html
+
+If you require further assistance please contact us by sending email to
+export@cisco.com.
+
+Linux Unix (Intel-x86) processor with 884857K bytes of memory.
+Processor board ID 67108896
+4 Ethernet interfaces
+1024K bytes of NVRAM.
+
+
+
+Configuration register is 0x0
+
+r1#sh inv
+r1#sh clock
+*01:25:16.623 EET Tue Jun 12 2018
+r1#sh log
+Syslog logging: enabled (0 messages dropped, 3 messages rate-limited, 0 flushes, 0 overruns, xml disabled, filtering disabled)
+
+No Active Message Discriminator.
+
+
+
+No Inactive Message Discriminator.
+
+
+    Console logging: disabled
+    Monitor logging: level debugging, 0 messages logged, xml disabled,
+                     filtering disabled
+    Buffer logging:  level debugging, 4431 messages logged, xml disabled,
+                    filtering disabled
+    Exception Logging: size (4096 bytes)
+    Count and timestamp logging messages: disabled
+    Persistent logging: disabled
+
+No active filter modules.
+
+    Trap logging: level debugging, 4461 message lines logged
+        Logging Source-Interface:       VRF Name:
+
+Log Buffer (20010 bytes):
+successful for cisco
+*Jun 11 21:28:44.026: SSH2 0: channel open request
+*Jun 11 21:28:44.033: SSH2 0: pty-req request
+*Jun 11 21:28:44.033: SSH2 0: setting TTY - requested: height 24, width 80; set: height 24, width 80
+*Jun 11 21:28:44.039: SSH2 0: shell request
+*Jun 11 21:28:44.039: SSH2 0: shell message received
+*Jun 11 21:28:44.039: SSH2 0: starting shell for vty
+*Jun 11 21:28:52.818: %SYS-5-CONFIG_I: Configured from console by cisco on vty0 (192.168.123.222)
+*Jun 11 21:29:03.032: SSH0: Session terminated normally
+*Jun 11 21:34:20.524: SSH2: Session disconnected - error 0x12
+*Jun 11 22:30:09.514: SSH0: starting SSH control process
+*Jun 11 22:30:09.515: SSH0: sent protocol version id SSH-2.0-Cisco-1.25
+*Jun 11 22:30:09.528: SSH0: protocol version id is - SSH-2.0-paramiko_2.4.1
+*Jun 11 22:30:09.529: SSH2 0: kexinit sent: encryption algo = aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+*Jun 11 22:30:09.529: SSH2 0: kexinit sent: mac algo = hmac-sha1,hmac-sha1-96
+*Jun 11 22:30:09.532: SSH2 0: SSH2_MSG_KEXINIT sent
+*Jun 11 22:30:09.543: SSH2 0: SSH2_MSG_KEXINIT received
+*Jun 11 22:30:09.543: SSH2 0: kex: client->server enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 22:30:09.543: SSH2 0: kex: server->client enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 22:30:09.544: SSH2 0: Using kex_algo = diffie-hellman-group-exchange-sha1
+*Jun 11 22:30:09.752: SSH2 0: SSH2_MSG_KEX_DH_GEX_REQUEST received
+*Jun 11 22:30:09.752: SSH2 0: Range sent by client is - 1024 < 2048 < 8192 
+*Jun 11 22:30:09.752: SSH2 0:  Modulus size established : 2048 bits
+*Jun 11 22:30:09.776: SSH2 0: expecting SSH2_MSG_KEX_DH_GEX_INIT
+*Jun 11 22:30:09.808: SSH2 0: SSH2_MSG_KEXDH_INIT received
+*Jun 11 22:30:09.837: SSH2: kex_derive_keys complete
+*Jun 11 22:30:09.837: SSH2 0: SSH2_MSG_NEWKEYS sent
+*Jun 11 22:30:09.837: SSH2 0: waiting for SSH2_MSG_NEWKEYS
+*Jun 11 22:30:09.981: SSH2 0: SSH2_MSG_NEWKEYS received
+*Jun 11 22:30:10.200: SSH2 0: Using method = password
+*Jun 11 22:30:10.208: SSH2 0: authentication successful for cisco
+*Jun 11 22:30:10.217: SSH2 0: channel open request
+*Jun 11 22:30:10.226: SSH2 0: pty-req request
+*Jun 11 22:30:10.228: SSH2 0: setting TTY - requested: height 24, width 80; set: height 24, width 80
+*Jun 11 22:30:10.234: SSH2 0: shell request
+*Jun 11 22:30:10.234: SSH2 0: shell message received
+*Jun 11 22:30:10.235: SSH2 0: starting shell for vty
+*Jun 11 22:30:19.020: %SYS-5-CONFIG_I: Configured from console by cisco on vty0 (192.168.123.222)
+*Jun 11 22:30:29.365: SSH0: Session disconnected - error 0x07
+*Jun 11 22:34:34.915: SSH0: starting SSH control process
+*Jun 11 22:34:34.916: SSH0: sent protocol version id SSH-2.0-Cisco-1.25
+*Jun 11 22:34:34.925: SSH0: protocol version id is - SSH-2.0-paramiko_2.4.1
+*Jun 11 22:34:34.926: SSH2 0: kexinit sent: encryption algo = aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+*Jun 11 22:34:34.926: SSH2 0: kexinit sent: mac algo = hmac-sha1,hmac-sha1-96
+*Jun 11 22:34:34.927: SSH2 0: SSH2_MSG_KEXINIT sent
+*Jun 11 22:34:34.927: SSH2 0: SSH2_MSG_KEXINIT received
+*Jun 11 22:34:34.927: SSH2 0: kex: client->server enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 22:34:34.927: SSH2 0: kex: server->client enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 22:34:34.928: SSH2 0: Using kex_algo = diffie-hellman-group-exchange-sha1
+*Jun 11 22:34:34.959: SSH2 0: SSH2_MSG_KEX_DH_GEX_REQUEST received
+*Jun 11 22:34:34.959: SSH2 0: Range sent by client is - 1024 < 2048 < 8192 
+*Jun 11 22:34:34.959: SSH2 0:  Modulus size established : 2048 bits
+*Jun 11 22:34:34.975: SSH2 0: expecting SSH2_MSG_KEX_DH_GEX_INIT
+*Jun 11 22:34:34.998: SSH2 0: SSH2_MSG_KEXDH_INIT received
+*Jun 11 22:34:35.030: SSH2: kex_derive_keys complete
+*Jun 11 22:34:35.030: SSH2 0: SSH2_MSG_NEWKEYS sent
+*Jun 11 22:34:35.030: SSH2 0: waiting for SSH2_MSG_NEWKEYS
+*Jun 11 22:34:35.076: SSH2 0: SSH2_MSG_NEWKEYS received
+*Jun 11 22:34:35.298: SSH2 0: Using method = password
+*Jun 11 22:34:35.299: SSH2 0: authentication successful for cisco
+*Jun 11 22:34:35.311: SSH2 0: channel open request
+*Jun 11 22:34:35.323: SSH2 0: pty-req request
+*Jun 11 22:34:35.323: SSH2 0: setting TTY - requested: height 24, width 80; set: height 24, width 80
+*Jun 11 22:34:35.334: SSH2 0: shell request
+*Jun 11 22:34:35.334: SSH2 0: shell message received
+*Jun 11 22:34:35.334: SSH2 0: starting shell for vty
+*Jun 11 22:34:44.138: %SYS-5-CONFIG_I: Configured from console by cisco on vty0 (192.168.123.222)
+*Jun 11 22:36:09.668: SSH1: starting SSH control process
+*Jun 11 22:36:09.668: SSH1: sent protocol version id SSH-2.0-Cisco-1.25
+*Jun 11 22:36:09.675: SSH1: protocol version id is - SSH-2.0-paramiko_2.4.1
+*Jun 11 22:36:09.675: SSH2 1: kexinit sent: encryption algo = aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+*Jun 11 22:36:09.675: SSH2 1: kexinit sent: mac algo = hmac-sha1,hmac-sha1-96
+*Jun 11 22:36:09.676: SSH2 1: SSH2_MSG_KEXINIT sent
+*Jun 11 22:36:09.676: SSH2 1: SSH2_MSG_KEXINIT received
+*Jun 11 22:36:09.676: SSH2 1: kex: client->server enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 22:36:09.676: SSH2 1: kex: server->client enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 22:36:09.676: SSH2 1: Using kex_algo = diffie-hellman-group-exchange-sha1
+*Jun 11 22:36:09.683: SSH2 1: SSH2_MSG_KEX_DH_GEX_REQUEST received
+*Jun 11 22:36:09.683: SSH2 1: Range sent by client is - 1024 < 2048 < 8192 
+*Jun 11 22:36:09.683: SSH2 1:  Modulus size established : 2048 bits
+*Jun 11 22:36:09.712: SSH2 1: expecting SSH2_MSG_KEX_DH_GEX_INIT
+*Jun 11 22:36:09.725: SSH2 1: SSH2_MSG_KEXDH_INIT received
+*Jun 11 22:36:09.755: SSH2: kex_derive_keys complete
+*Jun 11 22:36:09.755: SSH2 1: SSH2_MSG_NEWKEYS sent
+*Jun 11 22:36:09.755: SSH2 1: waiting for SSH2_MSG_NEWKEYS
+*Jun 11 22:36:09.828: SSH2 1: SSH2_MSG_NEWKEYS received
+*Jun 11 22:36:10.047: SSH2 1: Using method = password
+*Jun 11 22:36:10.047: SSH2 1: authentication successful for cisco
+*Jun 11 22:36:10.056: SSH2 1: channel open request
+*Jun 11 22:36:10.062: SSH2 1: pty-req request
+*Jun 11 22:36:10.062: SSH2 1: setting TTY - requested: height 24, width 80; set: height 24, width 80
+*Jun 11 22:36:10.103: SSH2 1: shell request
+*Jun 11 22:36:10.103: SSH2 1: shell message received
+*Jun 11 22:36:10.104: SSH2 1: starting shell for vty
+*Jun 11 22:36:19.398: %SYS-5-CONFIG_I: Configured from console by cisco on vty1 (192.168.123.222)
+*Jun 11 22:39:47.738: SSH2: starting SSH control process
+*Jun 11 22:39:47.738: SSH2: sent protocol version id SSH-2.0-Cisco-1.25
+*Jun 11 22:39:47.747: SSH2: protocol version id is - SSH-2.0-paramiko_2.4.1
+*Jun 11 22:39:47.747: SSH2 2: kexinit sent: encryption algo = aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+*Jun 11 22:39:47.747: SSH2 2: kexinit sent: mac algo = hmac-sha1,hmac-sha1-96
+*Jun 11 22:39:47.747: SSH2 2: SSH2_MSG_KEXINIT sent
+*Jun 11 22:39:47.747: SSH2 2: SSH2_MSG_KEXINIT received
+*Jun 11 22:39:47.748: SSH2 2: kex: client->server enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 22:39:47.748: SSH2 2: kex: server->client enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 22:39:47.748: SSH2 2: Using kex_algo = diffie-hellman-group-exchange-sha1
+*Jun 11 22:39:47.756: SSH2 2: SSH2_MSG_KEX_DH_GEX_REQUEST received
+*Jun 11 22:39:47.756: SSH2 2: Range sent by client is - 1024 < 2048 < 8192 
+*Jun 11 22:39:47.756: SSH2 2:  Modulus size established : 2048 bits
+*Jun 11 22:39:47.772: SSH2 2: expecting SSH2_MSG_KEX_DH_GEX_INIT
+*Jun 11 22:39:47.794: SSH2 2: SSH2_MSG_KEXDH_INIT received
+*Jun 11 22:39:47.813: SSH2: kex_derive_keys complete
+*Jun 11 22:39:47.813: SSH2 2: SSH2_MSG_NEWKEYS sent
+*Jun 11 22:39:47.813: SSH2 2: waiting for SSH2_MSG_NEWKEYS
+*Jun 11 22:39:47.860: SSH2 2: SSH2_MSG_NEWKEYS received
+*Jun 11 22:39:48.075: SSH2 2: Using method = password
+*Jun 11 22:39:48.076: SSH2 2: authentication successful for cisco
+*Jun 11 22:39:48.083: SSH2 2: channel open request
+*Jun 11 22:39:48.091: SSH2 2: pty-req request
+*Jun 11 22:39:48.091: SSH2 2: setting TTY - requested: height 24, width 80; set: height 24, width 80
+*Jun 11 22:39:48.098: SSH2 2: shell request
+*Jun 11 22:39:48.098: SSH2 2: shell message received
+*Jun 11 22:39:48.098: SSH2 2: starting shell for vty
+*Jun 11 22:39:56.699: %SYS-5-CONFIG_I: Configured from console by cisco on vty2 (192.168.123.222)
+*Jun 11 22:40:03.612: SSH0: Session terminated normally
+*Jun 11 22:40:04.709: SSH1: Session terminated normally
+*Jun 11 22:41:03.565: SSH0: starting SSH control process
+*Jun 11 22:41:03.565: SSH0: sent protocol version id SSH-2.0-Cisco-1.25
+*Jun 11 22:41:03.570: SSH0: protocol version id is - SSH-2.0-paramiko_2.4.1
+*Jun 11 22:41:03.570: SSH2 0: kexinit sent: encryption algo = aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+*Jun 11 22:41:03.570: SSH2 0: kexinit sent: mac algo = hmac-sha1,hmac-sha1-96
+*Jun 11 22:41:03.571: SSH2 0: SSH2_MSG_KEXINIT sent
+*Jun 11 22:41:03.571: SSH2 0: SSH2_MSG_KEXINIT received
+*Jun 11 22:41:03.571: SSH2 0: kex: client->server enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 22:41:03.571: SSH2 0: kex: server->client enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 22:41:03.571: SSH2 0: Using kex_algo = diffie-hellman-group-exchange-sha1
+*Jun 11 22:41:03.574: SSH2 0: SSH2_MSG_KEX_DH_GEX_REQUEST received
+*Jun 11 22:41:03.574: SSH2 0: Range sent by client is - 1024 < 2048 < 8192 
+*Jun 11 22:41:03.574: SSH2 0:  Modulus size established : 2048 bits
+*Jun 11 22:41:03.587: SSH2 0: expecting SSH2_MSG_KEX_DH_GEX_INIT
+*Jun 11 22:41:03.610: SSH2 0: SSH2_MSG_KEXDH_INIT received
+*Jun 11 22:41:03.631: SSH2: kex_derive_keys complete
+*Jun 11 22:41:03.631: SSH2 0: SSH2_MSG_NEWKEYS sent
+*Jun 11 22:41:03.631: SSH2 0: waiting for SSH2_MSG_NEWKEYS
+*Jun 11 22:41:03.678: SSH2 0: SSH2_MSG_NEWKEYS received
+*Jun 11 22:41:03.904: SSH2 0: Using method = password
+*Jun 11 22:41:03.908: SSH2 0: authentication successful for cisco
+*Jun 11 22:41:03.922: SSH2 0: channel open request
+*Jun 11 22:41:03.931: SSH2 0: pty-req request
+*Jun 11 22:41:03.931: SSH2 0: setting TTY - requested: height 24, width 80; set: height 24, width 80
+*Jun 11 22:41:03.969: SSH2 0: shell request
+*Jun 11 22:41:03.969: SSH2 0: shell message received
+*Jun 11 22:41:03.969: SSH2 0: starting shell for vty
+*Jun 11 22:41:12.674: %SYS-5-CONFIG_I: Configured from console by cisco on vty0 (192.168.123.222)
+*Jun 11 22:41:22.844: SSH0: Session terminated normally
+*Jun 11 22:49:22.523: SSH0: starting SSH control process
+*Jun 11 22:49:22.523: SSH0: sent protocol version id SSH-2.0-Cisco-1.25
+*Jun 11 22:49:22.523: SSH0: protocol version id is - SSH-2.0-paramiko_2.4.1
+*Jun 11 22:49:22.524: SSH2 0: kexinit sent: encryption algo = aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+*Jun 11 22:49:22.524: SSH2 0: kexinit sent: mac algo = hmac-sha1,hmac-sha1-96
+*Jun 11 22:49:22.524: SSH2 0: SSH2_MSG_KEXINIT sent
+*Jun 11 22:49:22.528: SSH2 0: SSH2_MSG_KEXINIT received
+*Jun 11 22:49:22.528: SSH2 0: kex: client->server enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 22:49:22.528: SSH2 0: kex: server->client enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 22:49:22.528: SSH2 0: Using kex_algo = diffie-hellman-group-exchange-sha1
+*Jun 11 22:49:22.738: SSH2 0: SSH2_MSG_KEX_DH_GEX_REQUEST received
+*Jun 11 22:49:22.738: SSH2 0: Range sent by client is - 1024 < 2048 < 8192 
+*Jun 11 22:49:22.738: SSH2 0:  Modulus size established : 2048 bits
+*Jun 11 22:49:22.748: SSH2 0: expecting SSH2_MSG_KEX_DH_GEX_INIT
+*Jun 11 22:49:22.777: SSH2 0: SSH2_MSG_KEXDH_INIT received
+*Jun 11 22:49:22.799: SSH2: kex_derive_keys complete
+*Jun 11 22:49:22.799: SSH2 0: SSH2_MSG_NEWKEYS sent
+*Jun 11 22:49:22.799: SSH2 0: waiting for SSH2_MSG_NEWKEYS
+*Jun 11 22:49:22.842: SSH2 0: SSH2_MSG_NEWKEYS received
+*Jun 11 22:49:23.060: SSH2 0: Using method = password
+*Jun 11 22:49:23.060: SSH2 0: authentication successful for cisco
+*Jun 11 22:49:23.064: SSH2 0: channel open request
+*Jun 11 22:49:23.069: SSH2 0: pty-req request
+*Jun 11 22:49:23.069: SSH2 0: setting TTY - requested: height 24, width 80; set: height 24, width 80
+*Jun 11 22:49:23.074: SSH2 0: shell request
+*Jun 11 22:49:23.074: SSH2 0: shell message received
+*Jun 11 22:49:23.075: SSH2 0: starting shell for vty
+*Jun 11 22:49:31.702: %SYS-5-CONFIG_I: Configured from console by cisco on vty0 (192.168.123.222)
+*Jun 11 22:49:41.861: SSH0: Session terminated normally
+*Jun 11 22:50:03.193: SSH2: Session disconnected - error 0x12
+*Jun 11 23:13:38.898: SSH0: starting SSH control process
+*Jun 11 23:13:38.898: SSH0: sent protocol version id SSH-2.0-Cisco-1.25
+*Jun 11 23:13:38.905: SSH0: protocol version id is - SSH-2.0-paramiko_2.4.1
+*Jun 11 23:13:38.906: SSH2 0: kexinit sent: encryption algo = aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+*Jun 11 23:13:38.906: SSH2 0: kexinit sent: mac algo = hmac-sha1,hmac-sha1-96
+*Jun 11 23:13:38.907: SSH2 0: SSH2_MSG_KEXINIT sent
+*Jun 11 23:13:38.907: SSH2 0: SSH2_MSG_KEXINIT received
+*Jun 11 23:13:38.907: SSH2 0: kex: client->server enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 23:13:38.907: SSH2 0: kex: server->client enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 23:13:38.907: SSH2 0: Using kex_algo = diffie-hellman-group-exchange-sha1
+*Jun 11 23:13:38.917: SSH2 0: SSH2_MSG_KEX_DH_GEX_REQUEST received
+*Jun 11 23:13:38.917: SSH2 0: Range sent by client is - 1024 < 2048 < 8192 
+*Jun 11 23:13:38.917: SSH2 0:  Modulus size established : 2048 bits
+*Jun 11 23:13:38.939: SSH2 0: expecting SSH2_MSG_KEX_DH_GEX_INIT
+*Jun 11 23:13:38.958: SSH2 0: SSH2_MSG_KEXDH_INIT received
+*Jun 11 23:13:38.977: SSH2: kex_derive_keys complete
+*Jun 11 23:13:38.977: SSH2 0: SSH2_MSG_NEWKEYS sent
+*Jun 11 23:13:38.977: SSH2 0: waiting for SSH2_MSG_NEWKEYS
+*Jun 11 23:13:39.101: SSH2 0: SSH2_MSG_NEWKEYS received
+*Jun 11 23:13:39.335: SSH2 0: Using method = password
+*Jun 11 23:13:39.340: SSH2 0: authentication successful for cisco
+*Jun 11 23:13:39.348: SSH2 0: channel open request
+*Jun 11 23:13:39.355: SSH2 0: pty-req request
+*Jun 11 23:13:39.355: SSH2 0: setting TTY - requested: height 24, width 80; set: height 24, width 80
+*Jun 11 23:13:39.361: SSH2 0: shell request
+*Jun 11 23:13:39.361: SSH2 0: shell message received
+*Jun 11 23:13:39.361: SSH2 0: starting shell for vty
+*Jun 11 23:13:48.068: %SYS-5-CONFIG_I: Configured from console by cisco on vty0 (192.168.123.222)
+*Jun 11 23:14:00.228: SSH0: Session terminated normally
+*Jun 11 23:14:45.763: SSH0: starting SSH control process
+*Jun 11 23:14:45.763: SSH0: sent protocol version id SSH-2.0-Cisco-1.25
+*Jun 11 23:14:45.774: SSH0: protocol version id is - SSH-2.0-paramiko_2.4.1
+*Jun 11 23:14:45.774: SSH2 0: kexinit sent: encryption algo = aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+*Jun 11 23:14:45.774: SSH2 0: kexinit sent: mac algo = hmac-sha1,hmac-sha1-96
+*Jun 11 23:14:45.775: SSH2 0: SSH2_MSG_KEXINIT sent
+*Jun 11 23:14:45.775: SSH2 0: SSH2_MSG_KEXINIT received
+*Jun 11 23:14:45.775: SSH2 0: kex: client->server enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 23:14:45.775: SSH2 0: kex: server->client enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 23:14:45.775: SSH2 0: Using kex_algo = diffie-hellman-group-exchange-sha1
+*Jun 11 23:14:45.788: SSH2 0: SSH2_MSG_KEX_DH_GEX_REQUEST received
+*Jun 11 23:14:45.788: SSH2 0: Range sent by client is - 1024 < 2048 < 8192 
+*Jun 11 23:14:45.788: SSH2 0:  Modulus size established : 2048 bits
+*Jun 11 23:14:45.819: SSH2 0: expecting SSH2_MSG_KEX_DH_GEX_INIT
+*Jun 11 23:14:45.833: SSH2 0: SSH2_MSG_KEXDH_INIT received
+*Jun 11 23:14:45.877: SSH2: kex_derive_keys complete
+*Jun 11 23:14:45.877: SSH2 0: SSH2_MSG_NEWKEYS sent
+*Jun 11 23:14:45.877: SSH2 0: waiting for SSH2_MSG_NEWKEYS
+*Jun 11 23:14:45.931: SSH2 0: SSH2_MSG_NEWKEYS received
+*Jun 11 23:14:46.153: SSH2 0: Using method = password
+*Jun 11 23:14:46.154: SSH2 0: authentication successful for cisco
+*Jun 11 23:14:46.163: SSH2 0: channel open request
+*Jun 11 23:14:46.171: SSH2 0: pty-req request
+*Jun 11 23:14:46.172: SSH2 0: setting TTY - requested: height 24, width 80; set: height 24, width 80
+*Jun 11 23:14:46.181: SSH2 0: shell request
+*Jun 11 23:14:46.181: SSH2 0: shell message received
+*Jun 11 23:14:46.181: SSH2 0: starting shell for vty
+*Jun 11 23:14:54.785: %SYS-5-CONFIG_I: Configured from console by cisco on vty0 (192.168.123.222)
+*Jun 11 23:15:04.971: SSH0: Session terminated normally
+*Jun 11 23:22:31.813: SSH0: starting SSH control process
+*Jun 11 23:22:31.813: SSH0: sent protocol version id SSH-2.0-Cisco-1.25
+*Jun 11 23:22:31.819: SSH0: protocol version id is - SSH-2.0-paramiko_2.4.1
+*Jun 11 23:22:31.819: SSH2 0: kexinit sent: encryption algo = aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+*Jun 11 23:22:31.819: SSH2 0: kexinit sent: mac algo = hmac-sha1,hmac-sha1-96
+*Jun 11 23:22:31.821: SSH2 0: SSH2_MSG_KEXINIT sent
+*Jun 11 23:22:31.821: SSH2 0: SSH2_MSG_KEXINIT received
+*Jun 11 23:22:31.821: SSH2 0: kex: client->server enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 23:22:31.821: SSH2 0: kex: server->client enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 23:22:31.822: SSH2 0: Using kex_algo = diffie-hellman-group-exchange-sha1
+*Jun 11 23:22:31.825: SSH2 0: SSH2_MSG_KEX_DH_GEX_REQUEST received
+*Jun 11 23:22:31.825: SSH2 0: Range sent by client is - 1024 < 2048 < 8192 
+*Jun 11 23:22:31.825: SSH2 0:  Modulus size established : 2048 bits
+*Jun 11 23:22:31.860: SSH2 0: expecting SSH2_MSG_KEX_DH_GEX_INIT
+*Jun 11 23:22:31.868: SSH2 0: SSH2_MSG_KEXDH_INIT received
+*Jun 11 23:22:31.894: SSH2: kex_derive_keys complete
+*Jun 11 23:22:31.895: SSH2 0: SSH2_MSG_NEWKEYS sent
+*Jun 11 23:22:31.895: SSH2 0: waiting for SSH2_MSG_NEWKEYS
+*Jun 11 23:22:31.940: SSH2 0: SSH2_MSG_NEWKEYS received
+*Jun 11 23:22:32.181: SSH2 0: Using method = password
+*Jun 11 23:22:32.183: SSH2 0: authentication successful for cisco
+*Jun 11 23:22:32.191: SSH2 0: channel open request
+*Jun 11 23:22:32.201: SSH2 0: pty-req request
+*Jun 11 23:22:32.201: SSH2 0: setting TTY - requested: height 24, width 80; set: height 24, width 80
+*Jun 11 23:22:32.210: SSH2 0: shell request
+*Jun 11 23:22:32.210: SSH2 0: shell message received
+*Jun 11 23:22:32.210: SSH2 0: starting shell for vty
+*Jun 11 23:22:41.119: %SYS-5-CONFIG_I: Configured from console by cisco on vty0 (192.168.123.222)
+*Jun 11 23:22:51.087: SSH0: Session terminated normally
+*Jun 11 23:25:04.884: SSH0: starting SSH control process
+*Jun 11 23:25:04.884: SSH0: sent protocol version id SSH-2.0-Cisco-1.25
+*Jun 11 23:25:04.885: SSH0: protocol version id is - SSH-2.0-paramiko_2.4.1
+*Jun 11 23:25:04.885: SSH2 0: kexinit sent: encryption algo = aes128-ctr,aes192-ctr,aes256-ctr,aes128-cbc,3des-cbc,aes192-cbc,aes256-cbc
+*Jun 11 23:25:04.885: SSH2 0: kexinit sent: mac algo = hmac-sha1,hmac-sha1-96
+*Jun 11 23:25:04.885: SSH2 0: SSH2_MSG_KEXINIT sent
+*Jun 11 23:25:04.894: SSH2 0: SSH2_MSG_KEXINIT received
+*Jun 11 23:25:04.894: SSH2 0: kex: client->server enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 23:25:04.895: SSH2 0: kex: server->client enc:aes128-ctr mac:hmac-sha1 
+*Jun 11 23:25:04.895: SSH2 0: Using kex_algo = diffie-hellman-group-exchange-sha1
+*Jun 11 23:25:05.107: SSH2 0: SSH2_MSG_KEX_DH_GEX_REQUEST received
+*Jun 11 23:25:05.107: SSH2 0: Range sent by client is - 1024 < 2048 < 8192 
+*Jun 11 23:25:05.107: SSH2 0:  Modulus size established : 2048 bits
+*Jun 11 23:25:05.118: SSH2 0: expecting SSH2_MSG_KEX_DH_GEX_INIT
+*Jun 11 23:25:05.156: SSH2 0: SSH2_MSG_KEXDH_INIT received
+*Jun 11 23:25:05.209: SSH2: kex_derive_keys complete
+*Jun 11 23:25:05.209: SSH2 0: SSH2_MSG_NEWKEYS sent
+*Jun 11 23:25:05.209: SSH2 0: waiting for SSH2_MSG_NEWKEYS
+*Jun 11 23:25:05.256: SSH2 0: SSH2_MSG_NEWKEYS received
+*Jun 11 23:25:05.469: SSH2 0: Using method = password
+*Jun 11 23:25:05.470: SSH2 0: authentication successful for cisco
+*Jun 11 23:25:05.475: SSH2 0: channel open request
+*Jun 11 23:25:05.480: SSH2 0: pty-req request
+*Jun 11 23:25:05.480: SSH2 0: setting TTY - requested: height 24, width 80; set: height 24, width 80
+*Jun 11 23:25:05.485: SSH2 0: shell request
+*Jun 11 23:25:05.485: SSH2 0: shell message received
+*Jun 11 23:25:05.485: SSH2 0: starting shell for vty
+*Jun 11 23:25:14.088: %SYS-5-CONFIG_I: Configured from console by cisco on vty0 (192.168.123.222)
+r1#
